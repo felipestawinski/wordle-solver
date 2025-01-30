@@ -31,12 +31,19 @@ try:
 
     elem = driver.find_element(By.CLASS_NAME, "fides-accept-all-button")
     elem.click()
-    sleep(2)
+    sleep(1)
     elem = driver.find_element(By.CLASS_NAME, "purr-blocker-card__button")
     elem.click()
-    sleep(2)
+    sleep(1)
     elem = driver.find_element(By.XPATH, f'//button[@data-testid="Play"]')
     elem.click()
+    sleep(1)
+    elem = driver.find_element(By.CLASS_NAME, "game-icon")
+    elem.click()
+    sleep(1)
+    elem = driver.find_element(By.XPATH, f'//div[@aria-label="Row 1"]')
+    elem.click
+    elem.send_keys("a")
     # Keep the browser open until user presses Enter 
     input("Press Enter to close the browser...")
 
