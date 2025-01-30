@@ -4,6 +4,9 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.chrome.options import Options
 from selenium.common.exceptions import WebDriverException
+from selenium.webdriver.common.action_chains import ActionChains
+from question_to_ai import QuestionToAI
+
 import re
 import sys
 from time import sleep
@@ -41,9 +44,17 @@ try:
     elem = driver.find_element(By.CLASS_NAME, "game-icon")
     elem.click()
     sleep(1)
-    elem = driver.find_element(By.XPATH, f'//div[@aria-label="Row 1"]')
-    elem.click
-    elem.send_keys("a")
+    # Locate the "Row 1" element
+
+    actions = ActionChains(driver)
+    actions.send_keys("STONE").perform()
+    actions.send_keys(Keys.ENTER).perform()
+
+    ai_client = QuestionToAI()
+
+
+    #for i in range(5):
+
     # Keep the browser open until user presses Enter 
     input("Press Enter to close the browser...")
 
